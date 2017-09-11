@@ -1,11 +1,10 @@
 const express = require('express');
 const cheerio = require('cheerio');
 const request = require('request');
-
+const channelNames = require('./channelNames.js')
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 
 var scrapeInfo = {};  // json object to be returned to user
 
@@ -49,10 +48,9 @@ function parse(url) {
           var channelName = stationInfo.children('.zc-st-c').text()
 
           var rowJSON = {}
-          rowJSON['channelNumber'] = channelNumber;
-          rowJSON['channelName'] = channelName;
+          rowJSON['channelNumber'] = parseFloat(channelNumber) + 0.1;
+          rowJSON['channelName'] = channelNames.getChannelName(rowJSON['channelNumber'], channelName);
           rowJSON['showings'] = [];
-
 
           // traverse through showings
           row.children('.zc-pg').each(function () {
