@@ -48,7 +48,14 @@ function parse(url) {
           var channelName = stationInfo.children('.zc-st-c').text()
 
           var rowJSON = {}
-          rowJSON['channelNumber'] = channelNumber + ".1";
+
+          // take into account channels 20.1 and 20.2
+          if(channelName == 'INFO020') {
+            rowJSON['channelNumber'] = channelNumber + ".2";
+          } else {
+            rowJSON['channelNumber'] = channelNumber + ".1";
+          }
+
           rowJSON['channelName'] = channelNames.getChannelName(rowJSON['channelNumber'], channelName);
           rowJSON['showings'] = [];
 
