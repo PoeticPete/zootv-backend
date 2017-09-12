@@ -2,6 +2,7 @@ const express = require('express');
 const cheerio = require('cheerio');
 const request = require('request');
 const channelNames = require('./channelNames.js')
+const addStartTimes = require('./addStartTimes.js')
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -82,6 +83,7 @@ function parse(url) {
           scrapeInfo["channels"].push(rowJSON)
 
         });
+        scrapeInfo = addStartTimes.addStartTimes(scrapeInfo)
         console.log(scrapeInfo);
     })
 }
