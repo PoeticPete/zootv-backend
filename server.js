@@ -84,6 +84,9 @@ function parse(url) {
 
         });
         scrapeInfo = addStartTimes.addStartTimes(scrapeInfo)
+
+        scrapeInfo["info"] = "Hey you! Welcome to ZooTV. ZooTV is a TV guide for UMass Amherst. Search for a channel or show in the search bar. \n\nMade with ❤️ by Deji, Timi, and Peter. Slide into our DMs if you have any questions, comments, or concerns. \n\nEmail\nDeji: amarquis@umass.edu\nTimi: oiwayemi@umass.edu\nPeter: ptao@umass.edu\n\nIG\nPeter: https://www.instagram.com/poeticpete/"
+
         console.log(scrapeInfo);
     })
 }
