@@ -34,7 +34,7 @@ function styleStringToLength(s) {
 function parse(url) {
     request(url, function (error, response, body) {
         var $ = cheerio.load(body);
-
+        // console.log($('script').get())
         var startTime = getNumberFromString($('script').get()[0].children[0].data)
         scrapeInfo["startTime"] = startTime;
         scrapeInfo["channels"] = [];
@@ -91,14 +91,16 @@ function parse(url) {
     })
 }
 
+const websiteToScrape = 'http://affiliate.zap2it.com/tvlistings/ZCGrid.do?method=decideFwdForLineup&zipcode=01003&setMyPreference=false&lineupId=MA69873:-&aid=austate'
+
 console.log("SCRAPING!");
-parse('http://tvlistings.zap2it.com/tvlistings/ZCGrid.do?zipcode=01003&lineupId=MA69873:-&isDescriptionOn=true');
+parse(websiteToScrape);
 
 // Scrape the website every 15 minutes
 var minutes = 15, the_interval = minutes * 60 * 1000;
 setInterval(function() {
   console.log("SCRAPING!");
-  parse('http://tvlistings.zap2it.com/tvlistings/ZCGrid.do?zipcode=01003&lineupId=MA69873:-&isDescriptionOn=true');
+  parse(websiteToScrape);
   // do your stuff here
 }, the_interval);
 
