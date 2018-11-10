@@ -39,10 +39,11 @@ function parse() {
     url: `https://tvlistings.zap2it.com/api/grid?lineupId=USA-MA69873-DEFAULT&timespan=3&headendId=MA69873&country=USA&device=-&postalCode=01003&isOverride=true&time=${startTimestamp}&pref=-&userId=-&aid=gapzap`,
   }
   currTimeInSeconds - (currTimeInSeconds % 1800)
+
     request(websiteToScrape, function (error, response, body) {
 
       // round down to nearest half hour
-      var startTime = currTimeInSeconds - (currTimeInSeconds % 1800)
+      var startTime = currTimeInSeconds * 1000
       scrapeInfo["startTime"] = startTime;
       scrapeInfo["channels"] = [];
 
