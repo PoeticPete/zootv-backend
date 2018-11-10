@@ -53,6 +53,7 @@ function parse() {
         let newChannel = {}
         newChannel.channelNumber = channel.channelNo
         newChannel.channelName = channel.callSign
+        newChannel.thumbnail = channel.thumbnail
         newChannel.showings = []
 
         channel.events.forEach(function(event) {
