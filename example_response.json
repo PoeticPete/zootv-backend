@@ -1,0 +1,20 @@
+{
+  "startTime": 1234,
+  "channels": [
+    {
+      "channelNumber": "1",
+      "channelName": "name",
+      "showings": [
+        {
+          "length": 123,
+          "title": "hello",
+          "year": "2008",
+          "subtitle": "subbbb",
+          "description": "the description",
+          "startTime": "time"
+        }
+      ]
+    }
+  ],
+  "info": "the usual"
+}
