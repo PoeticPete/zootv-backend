@@ -43,7 +43,7 @@ function parse() {
     request(websiteToScrape, function (error, response, body) {
 
       // round down to nearest half hour
-      var startTime = currTimeInSeconds * 1000
+      var startTime = startTimestamp * 1000
       scrapeInfo["startTime"] = startTime;
       scrapeInfo["channels"] = [];
 
